@@ -138,3 +138,11 @@ details.faq p { margin-top: 10px; font-size: 14.5px; }
   .ticker-in { font-size: 12px; gap: 3px 14px; }
   .tk-upd { margin-left: 0; width: 100%; }
 }
+
+/* WhatsApp channel button */
+.wa-fab{position:fixed;right:16px;bottom:16px;z-index:60;display:inline-flex;
+align-items:center;background:#22c55e;color:#fff;text-decoration:none;
+padding:10px 18px;border-radius:999px;font-weight:600;font-size:15px;
+box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.wa-fab:hover{filter:brightness(1.08)}
+.wa-fab:focus-visible{outline:2px solid #fff;outline-offset:2px}
