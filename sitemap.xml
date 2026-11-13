@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://goldsilverrate.pk/</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/silver-rate-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/psl-silver-rate-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/10-tola-silver-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/52-tola-chandi-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/1-kg-silver-bar</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/1-tola-silver-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/10-gram-silver-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/gold-rate-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/gold-rate-today-karachi</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/silver-rate-karachi</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/silver-rate-lahore</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/silver-rate-islamabad-rawalpindi</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/ary-kbe-gold-silver-bars</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/gold-silver-calculator</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/about</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/contact</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/privacy-policy</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://goldsilverrate.pk/disclaimer</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://goldsilverrate.pk/</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://goldsilverrate.pk/silver-rate-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/psl-silver-rate-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/10-tola-silver-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/52-tola-chandi-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/1-kg-silver-bar</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/1-tola-silver-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/10-gram-silver-price-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/gold-rate-pakistan</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/gold-rate-today-karachi</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/silver-rate-karachi</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/silver-rate-lahore</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/silver-rate-islamabad-rawalpindi</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/ary-kbe-gold-silver-bars</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/gold-silver-calculator</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://goldsilverrate.pk/about</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.3</priority></url>
+<url><loc>https://goldsilverrate.pk/contact</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.3</priority></url>
+<url><loc>https://goldsilverrate.pk/privacy-policy</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.3</priority></url>
+<url><loc>https://goldsilverrate.pk/disclaimer</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>0.3</priority></url>
 </urlset>

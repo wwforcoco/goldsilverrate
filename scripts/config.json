@@ -1,0 +1,13 @@
+{
+  "mode": "auto",
+  "gold_premium_pct": null,
+  "silver_premium_pct": null,
+  "rawa_to_psl_ratio": null,
+  "gold_24k_spread": 3000,
+  "silver_psl_spread": 150,
+  "silver_rawa_spread": 130,
+  "gold_round_to": 100,
+  "silver_round_to": 10,
+  "max_change_pct": 8,
+  "notes": "mode: auto = update from world prices every run. manual = only rebuild pages from data/rates.json (use this when you type rates yourself). The three null values are filled in automatically on the first run from the rates already in data/rates.json, so the site matches your market rates. Edit them later if the site drifts from the Sarafa counter."
+}

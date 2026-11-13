@@ -1,0 +1,32 @@
+name: Update rates every hour
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: update-rates
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Get new prices and rebuild pages
+        run: python scripts/update_rates.py
+      - name: Save changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "rates-bot"
+            git config user.email "rates-bot@users.noreply.github.com"
+            git add -A
+            git commit -m "Update rates $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          else
+            echo "No change."
+          fi
