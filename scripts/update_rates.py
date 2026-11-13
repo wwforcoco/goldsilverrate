@@ -59,6 +59,12 @@ def world_prices():
 
 def main():
     conf = load(CONF)
+    # Scheduled runs happen every hour, but only update on even Pakistan hours
+    # (every 2 hours) to save Cloudflare builds. Manual runs always update.
+    if os.environ.get('GITHUB_EVENT_NAME') == 'schedule' and conf.get('every_hours', 2) > 1:
+        if datetime.now(ZoneInfo('Asia/Karachi')).hour % conf.get('every_hours', 2) != 0:
+            print('Skipping this hour (updates every', conf.get('every_hours', 2), 'hours)')
+            return 0
     if conf.get('mode') == 'manual':
         print('manual mode: rebuilding pages only')
         rebuild()
