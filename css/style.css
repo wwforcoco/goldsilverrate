@@ -146,3 +146,11 @@ padding:10px 18px;border-radius:999px;font-weight:600;font-size:15px;
 box-shadow:0 4px 14px rgba(0,0,0,.35)}
 .wa-fab:hover{filter:brightness(1.08)}
 .wa-fab:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+/* WhatsApp copy-rate button */
+.wa-share{margin:14px 0 4px}
+.wa-copy{background:#22c55e;color:#fff;border:0;padding:11px 18px;
+border-radius:10px;font-weight:600;font-size:15px;cursor:pointer;
+box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.wa-copy:active{transform:scale(.98)}
+.wa-copy.copied{background:#16a34a}

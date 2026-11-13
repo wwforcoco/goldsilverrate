@@ -111,7 +111,7 @@
     var ups = document.querySelectorAll("[data-updated]");
     for (var j = 0; j < ups.length; j++) ups[j].textContent = R.last_updated;
 
-    /* WhatsApp CTA – activates only when whatsapp_number is set in data/rates.json */
+        /* WhatsApp CTA – activates only when whatsapp_number is set in data/rates.json */
     var num = (R.whatsapp_number || "").replace(/[^0-9]/g, "");
     var blocks = document.querySelectorAll(".wa-cta");
     for (var k = 0; k < blocks.length; k++) {
@@ -186,17 +186,61 @@
     }
   }
 
+  /* -------- WhatsApp share: copy today's rates to clipboard -------- */
+  function monthYear() {
+    var m = ((R && R.last_updated) || "").match(/\d{1,2}\s+[A-Za-z]{3}\s+\d{4}/);
+    return m ? m[0].replace(/^\d{1,2}\s+/, "") : "today";
+  }
+
+  function shareText() {
+    var u = location.origin + location.pathname.replace(/\.html$/, "");
+    var t = "*Today's Silver & Gold Rate in Pakistan (" + monthYear() + "):*\n";
+    t += "\uD83E\uDE99 1 Tola PSL Silver Bar (999 fine): Rs. " + fmt(MET("psl_s_t")) + "\n";
+    t += "\uD83E\uDE99 10 Tola PSL Silver Bar: Rs. " + fmt(MET("psl_s_bar10")) + "\n";
+    t += "\uD83E\uDE99 24K Pure Gold (Per Tola): Rs. " + fmt(MET("g24_s_t")) + "\n";
+    t += "Live updates & calculator: " + u;
+    return t;
+  }
+
+  function wireShare() {
+    var btn = document.getElementById("wa-copy-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      function done() {
+        btn.textContent = "Copied - paste it in your WhatsApp groups";
+        btn.classList.add("copied");
+        setTimeout(function () {
+          btn.textContent = "\uD83D\uDCCB Copy Today's Rate for WhatsApp";
+          btn.classList.remove("copied");
+        }, 3000);
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = shareText();
+        ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareText()).then(done, fallback);
+      } else {
+        fallback();
+      }
+    });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       wireCalc();
-      fetch("data/rates.json").then(function (r) { return r.json(); })
-        .then(function (j) { R = j; hydrate(); })
+      fetch("data/rates.json?ver=" + Date.now()).then(function (r) { return r.json(); })
+        .then(function (j) { R = j; hydrate(); wireShare(); })
         .catch(function () { /* baked values already in HTML */ });
     });
   } else {
     wireCalc();
-    fetch("data/rates.json").then(function (r) { return r.json(); })
-      .then(function (j) { R = j; hydrate(); })
+    fetch("data/rates.json?ver=" + Date.now()).then(function (r) { return r.json(); })
+      .then(function (j) { R = j; hydrate(); wireShare(); })
       .catch(function () { });
   }
 })();
