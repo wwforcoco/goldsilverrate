@@ -1,0 +1,16 @@
+{
+  "last_updated": "Today 13 Nov 2026, 11:30 AM PKT",
+  "silver": {
+    "psl_tola_sell": 5850,
+    "psl_tola_buy": 5700,
+    "rawa_tola_sell": 5280,
+    "rawa_tola_buy": 5150
+  },
+  "gold": {
+    "24k_tola_sell": 421000,
+    "24k_tola_buy": 418000,
+    "22k_tola_sell": 385916,
+    "21k_tola_sell": 368375
+  },
+  "whatsapp_number": ""
+}
