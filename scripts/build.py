@@ -374,7 +374,7 @@ def shell(path,body_inner,ticker=''):
 <footer><div class="wrap"><div class="cols">
 <div><h3>GoldSilverRate.pk</h3><p>Daily gold and silver rates for Pakistan, worked out from one Sarafa Bazar benchmark. 1 Tola = 11.664 Grams.</p><p>Rates are for information. Confirm the final price with your dealer.</p></div>
 <div><h3>Silver</h3><a href="/silver-rate-pakistan">Silver rate in Pakistan</a><a href="/psl-silver-rate-pakistan">PSL silver rate</a><a href="/10-tola-silver-price-pakistan">10 tola silver</a><a href="/52-tola-chandi-price-pakistan">52 tola chandi</a><a href="/1-kg-silver-bar">1 KG silver</a><a href="/1-tola-silver-price-pakistan">1 tola silver</a><a href="/10-gram-silver-price-pakistan">10 gram silver</a><a href="/silver-rate-karachi">Silver Karachi</a><a href="/silver-rate-lahore">Silver Lahore</a><a href="/silver-rate-islamabad-rawalpindi">Silver Islamabad</a></div>
-<div><h3>Gold and more</h3><a href="/gold-rate-pakistan">Gold rate in Pakistan</a><a href="/gold-rate-today-karachi">Gold rate Karachi</a><a href="/ary-kbe-gold-silver-bars">ARY, KBE, PSL bars</a><a href="/gold-silver-calculator">Calculator</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/disclaimer">Disclaimer</a></div>
+<div><h3>Gold and more</h3><a href="/gold-rate-pakistan">Gold rate in Pakistan</a><a href="/gold-rate-today-karachi">Gold rate Karachi</a><a href="/ary-kbe-gold-silver-bars">ARY, KBE, PSL bars</a><a href="/gold-silver-calculator">Calculator</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/disclaimer">Disclaimer</a><a href="https://whatsapp.com/channel/0029Vb9bQ314tRrpC46GBr41" target="_blank" rel="noopener">Join our WhatsApp channel</a></div>
 </div><p class="copy">&copy; 2026 GoldSilverRate.pk. All rights reserved.</p></div></footer>
 <script type="application/json" id="rates">{RATES_JSON}</script>
 <script src="/js/main.js" defer></script>
@@ -422,6 +422,7 @@ hb=f'''<section class="hero"><span class="stamp"><i></i>Updated: {UP}</span><h1>
 <div class="grid two">
 <div class="card gold"><h2>Gold - 24K</h2><div class="price-row"><div class="price"><small>Selling (per tola)</small><strong>{pk(g24s)}</strong></div><div class="price"><small>Buying (per tola)</small><strong>{pk(g24b)}</strong></div></div><p class="note">22K: {pk(g22s)} &middot; 21K: {pk(g21s)} per tola</p><a href="/gold-rate-pakistan">See all gold rates &rarr;</a></div>
 <div class="card silver"><h2>Silver - PSL Bar</h2><div class="price-row"><div class="price"><small>Selling (per tola)</small><strong>{pk(ps)}</strong></div><div class="price"><small>Buying (per tola)</small><strong>{pk(pb)}</strong></div></div><p class="note">Rawa: {pk(rs)} selling &middot; {pk(rb)} buying per tola</p><a href="/silver-rate-pakistan">See all silver rates &rarr;</a></div></div>
+<p class="note wa"><a href="https://whatsapp.com/channel/0029Vb9bQ314tRrpC46GBr41" target="_blank" rel="noopener">Get daily rate updates: join our WhatsApp channel &rarr;</a></p>
 <h2>Calculator</h2>{calc_widget()}
 <h2>All weights at a glance</h2>{PSLT}{RAWAT}{GOLDT}{NOTE_G}
 <h2>Pick your page</h2>
