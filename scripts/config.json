@@ -1,8 +1,8 @@
 {
   "mode": "auto",
-  "gold_premium_pct": null,
-  "silver_premium_pct": null,
-  "rawa_to_psl_ratio": null,
+  "gold_premium_pct": 4.175,
+  "silver_premium_pct": 12.923,
+  "rawa_to_psl_ratio": 0.90256,
   "gold_24k_spread": 3000,
   "silver_psl_spread": 150,
   "silver_rawa_spread": 130,
