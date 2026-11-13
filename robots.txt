@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://goldsilverrate.rabiawasim704.workers.dev/sitemap.xml
+Sitemap: https://goldsilverrate.pk/sitemap.xml
