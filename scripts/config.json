@@ -1,5 +1,7 @@
 {
   "mode": "auto",
+  "every_hours": 1,
+  "touch_after_hours": 4,
   "gold_premium_pct": 4.175,
   "silver_premium_pct": 12.923,
   "rawa_to_psl_ratio": 0.90256,

@@ -120,9 +120,22 @@ def main():
     if changed_conf:
         save(CONF, conf)
     if new['silver'] == old.get('silver') and new['gold'] == old.get('gold'):
-        print('Prices unchanged: nothing to publish.')
-        if changed_conf:
+        age_h = None
+        try:
+            age_h = (now - datetime.fromisoformat(old['updated_iso'])).total_seconds() / 3600
+        except Exception:
+            pass
+        if age_h is None or age_h >= conf.get('touch_after_hours', 4):
+            # Prices stand (e.g. weekend market closed) but refresh the
+            # "Updated" stamp so the site never looks abandoned.
+            old['last_updated'] = new['last_updated']
+            old['updated_iso'] = new['updated_iso']
             save(RATES, old)
+            rebuild()
+            age_txt = 'unknown age' if age_h is None else f'{age_h:.1f} h old'
+            print('Prices unchanged; refreshed Updated time (was', age_txt + ').')
+        else:
+            print('Prices unchanged: nothing to publish.')
         return 0
     save(RATES, new)
     rebuild()
