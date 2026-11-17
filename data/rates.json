@@ -1,16 +1,16 @@
 {
-  "last_updated": "17 Nov 2026, 07:25 AM PKT",
-  "updated_iso": "2026-11-17T07:25:39+05:00",
+  "last_updated": "17 Nov 2026, 04:40 PM PKT",
+  "updated_iso": "2026-11-17T16:40:42+05:00",
   "silver": {
-    "psl_tola_sell": 5530,
-    "psl_tola_buy": 5380,
-    "rawa_tola_sell": 4990,
-    "rawa_tola_buy": 4860
+    "psl_tola_sell": 5570,
+    "psl_tola_buy": 5420,
+    "rawa_tola_sell": 5030,
+    "rawa_tola_buy": 4900
   },
   "gold": {
-    "24k_tola_sell": 418200,
-    "24k_tola_buy": 415200,
-    "22k_tola_sell": 383350,
-    "21k_tola_sell": 365925
+    "24k_tola_sell": 417200,
+    "24k_tola_buy": 414200,
+    "22k_tola_sell": 382433,
+    "21k_tola_sell": 365050
   }
 }
