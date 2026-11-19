@@ -57,6 +57,20 @@ KBE_GOLD_SECT=f'''<h2 id="kbe-gold-bars">KBE Gold Bar Price in Pakistan Today â€
 {table('KBE &amp; ARY 24K gold bar prices today (999.9 benchmark)',KBE_GOLD_ROWS)}
 <p class="note">KBE (Karachi Bullion Exchange) and ARY sealed bars are 24K certified gold, priced at the day rate plus a small brand premium. The table uses today's 24K benchmark, so ask your dealer for the exact bar price before you pay. Full checklist on the <a href="/ary-kbe-gold-silver-bars">ARY, KBE, PSL &amp; PAMP bars page</a>.</p>'''
 
+KHI_SILVER_EXTRA=f'''<h2>Why Karachi is Pakistan's silver price centre</h2>
+<p>Karachi is the biggest bullion market in the country. Wholesale dealers at Bolton Market buy and sell by the kilo, and their trading sets the benchmark you see on this site. Retail shops in Saddar and other areas buy from the wholesale market and add a small margin, so the counter price you are quoted is usually a few rupees per tola above the benchmark.</p>
+<p>If you are buying silver as savings, compare the sealed bar price with our <a href="/silver-rate-pakistan#psl-kbe-silver-bars">PSL &amp; KBE silver bar table</a> before you visit the shop. If your silver and savings are close to the Zakat limit, use the <a href="/silver-rate-pakistan#zakat-nisab">52.5 tola Zakat nisab calculator</a>.</p>
+<h2>Silver rate in Karachi vs other cities</h2>
+<p>The 24 carat chandi benchmark is the same across Pakistan, so Karachi is not cheaper by itself. What changes is the margin: wholesale dealers quote close to the benchmark, while gift and jewellery shops charge more on small items because of packing and making work.</p>'''
+
+ISB_SILVER_EXTRA=f'''<h2>Sealed silver bars in the twin cities</h2>
+<p>Dealers in Rawalpindi's Raja Bazar and Islamabad's F-7 Markaz sell sealed 999.0 bars alongside loose Rawa. For saving, a sealed bar is easier to resell anywhere in Pakistan because the weight and purity are already certified. Check our <a href="/silver-rate-pakistan#psl-kbe-silver-bars">PSL &amp; KBE silver bar price table</a> before you visit, so you know the benchmark for 1 tola, 10 tola and 1 kg.</p>
+<p>If you hold silver or gold above the Zakat limit, see the <a href="/silver-rate-pakistan#zakat-nisab">52.5 tola Zakat nisab calculator</a>. Today the nisab value is {pk(ps*52.5)}.</p>'''
+
+KHI_GOLD_EXTRA=f'''<h2>Gold bars in Karachi: KBE and ARY dealers</h2>
+<p>Karachi's Bolton Market is where most certified gold bars enter Pakistan. Dealers sell KBE and ARY sealed bars in sizes from 1 gram to 10 tola at the day rate plus a small brand premium. Today the 24K benchmark is {pk(g24s)} per tola. Check our <a href="/gold-rate-pakistan#kbe-gold-bars">KBE gold bar price table</a> for 1 gram, 10 gram and 10 tola prices before you go.</p>
+<p>Selling back is easy in Karachi: the same dealers buy bars at the buying rate, today {pk(g24b)} per tola for 24K. Keep the original pack and the bill to get the best buyback price.</p>'''
+
 NAV=[('/','Home'),('/silver-rate-pakistan','Silver'),('/psl-silver-rate-pakistan','PSL Bars'),('/gold-rate-pakistan','Gold'),('/gold-rate-today-karachi','Karachi'),('/silver-rate-lahore','Lahore'),('/gold-silver-calculator','Calculator')]
 def rel(slugs):
     return '<div class="links">'+''.join(f'<a href="/{s}">{PAGES[s]["short"]}</a>' for s in slugs)+'</div>'
@@ -261,10 +275,11 @@ add('gold-rate-today-karachi',short='Karachi Gold',
 <h2>Where Karachi buys and sells gold</h2>
 <p>Karachi has two well-known gold areas. Bolton Market is the old wholesale centre, where dealers trade in bulk. Saddar has many retail jewellers, so most families buy there. Retail shops add their own margin on top of the wholesale price.</p>
 <h2>Tips for buyers in Karachi</h2>
-<ul><li>Visit at least two shops and ask the same question: rate for your karat and weight.</li><li>Ask what the shop pays if you sell back the same day.</li><li>Get a written bill with the shop name and address.</li><li>For big purchases, prefer a shop that has been in the market for years.</li></ul>'''+rel(['gold-rate-pakistan','silver-rate-karachi','gold-silver-calculator']),
+<ul><li>Visit at least two shops and ask the same question: rate for your karat and weight.</li><li>Ask what the shop pays if you sell back the same day.</li><li>Get a written bill with the shop name and address.</li><li>For big purchases, prefer a shop that has been in the market for years.</li></ul>'''+KHI_GOLD_EXTRA+rel(['gold-rate-pakistan','silver-rate-karachi','gold-silver-calculator']),
  faqs=[('What is gold rate in Karachi today?',f'24K gold is {pk(g24s)} per tola. Last updated: {UP}.'),
        ('Is gold cheaper in Bolton Market?','Wholesale dealers sell in bulk and retail shops add their own margin, so the price you pay depends on the shop.'),
-       ('Does the rate change during the day?','Yes. It follows the world gold price and the dollar rate, so it can move several times a day.')])
+       ('Does the rate change during the day?','Yes. It follows the world gold price and the dollar rate, so it can move several times a day.'),
+       ('What is the gold bar price in Karachi today?',f'A 1 tola 24K certified gold bar (KBE or ARY benchmark) is about {pk(g24s)} in Karachi today, and the dealer buys back at about {pk(g24b)}. Last updated: {UP}.')])
 
 add('silver-rate-karachi',short='Karachi Silver',
  title='Silver Rate in Karachi Today (10 Tola Price at Sarafa Bazar) | GoldSilverRate.pk',
@@ -276,10 +291,12 @@ add('silver-rate-karachi',short='Karachi Silver',
  body=lambda:PSLT+RAWAT+cityrates('Karachi','the Karachi Sarafa Bazar')+NOTE_S+'''
 <h2>Buying silver in Karachi</h2>
 <p>Most silver in Karachi is traded in the Sarafa Bazar. Dealers sell both sealed bars and loose Rawa. If you want the easiest resale later, choose the sealed bar. If you want the lowest cost per tola, choose Rawa and get it tested.</p>
-<ul><li>Bring your own weight in mind: 10 tola is 116.64 grams.</li><li>Check the scale reading before paying.</li><li>Ask for a bill that shows weight, purity and rate.</li></ul>'''+rel(['10-tola-silver-price-pakistan','gold-rate-today-karachi','silver-rate-lahore']),
+<ul><li>Bring your own weight in mind: 10 tola is 116.64 grams.</li><li>Check the scale reading before paying.</li><li>Ask for a bill that shows weight, purity and rate.</li></ul>'''+KHI_SILVER_EXTRA+rel(['10-tola-silver-price-pakistan','gold-rate-today-karachi','silver-rate-lahore']),
  faqs=[('What is silver rate in Karachi today?',f'{pk(ps)} per tola (PSL) and {pk(rs)} per tola (Rawa). Last updated: {UP}.'),
        ('What is 10 tola silver price in Karachi today?',f'{pk(ps*10)} for a PSL bar and {pk(rs*10)} for Rawa.'),
-       ('Where is silver sold in Karachi?','Mainly in the Sarafa Bazar, including Bolton Market and Saddar.')])
+       ('Where is silver sold in Karachi?','Mainly in the Sarafa Bazar, including Bolton Market and Saddar.'),
+       ('What is the price of a 10 tola silver bar in Karachi today?',f'A 10 tola PSL silver bar in Karachi sells for about {pk(ps*10)} today. Sealed brand bars can add a small premium over the benchmark. Last updated: {UP}.'),
+       ('Is the silver rate in Karachi cheaper than other cities?','The benchmark rate is national, so Karachi wholesale dealers quote close to it. Retail shops in any city can be a little higher. Compare two shops before you pay.')])
 
 add('silver-rate-lahore',short='Lahore Silver',
  title='Silver Rate in Lahore Today (Sarafa Bazar, Suha Bazar Chandi Rate) | GoldSilverRate.pk',
@@ -308,10 +325,12 @@ add('silver-rate-islamabad-rawalpindi',short='Islamabad Silver',
 <h2>Two cities, two kinds of market</h2>
 <p>In Islamabad, F-7 Markaz has modern jewellery shops with fixed price boards. In Rawalpindi, the main Sarafa Bazar near Raja Bazar is the older trading centre, where dealers sell to shops across the region. The base price is the same, but retail margins differ.</p>
 <h2>Tips for buyers</h2>
-<ul><li>Margins can differ between a modern shop and a bazar dealer for the same weight. Compare both.</li><li>Ask the buying price before you buy.</li><li>For large silver, test the purity at a second shop.</li></ul>'''+rel(['silver-rate-lahore','silver-rate-karachi','silver-rate-pakistan']),
+<ul><li>Margins can differ between a modern shop and a bazar dealer for the same weight. Compare both.</li><li>Ask the buying price before you buy.</li><li>For large silver, test the purity at a second shop.</li></ul>'''+ISB_SILVER_EXTRA+rel(['silver-rate-lahore','silver-rate-karachi','silver-rate-pakistan']),
  faqs=[('What is silver rate in Islamabad today?',f'{pk(ps)} per tola (PSL) and {pk(rs)} per tola (Rawa). Last updated: {UP}.'),
        ('Is silver cheaper in Rawalpindi?','It can be, depending on the shop. Compare a bazar dealer and a modern shop before you buy.'),
-       ('How much is 10 tola silver in Islamabad?',f'{pk(ps*10)} for a PSL bar.')])
+       ('How much is 10 tola silver in Islamabad?',f'{pk(ps*10)} for a PSL bar.'),
+       ('How much is 1 kg silver in Islamabad today?',f'1 kg of 999 pure silver costs about {pk(ps*1000*G)} at the benchmark today. Our <a href="/1-kg-silver-bar">1 kg silver page</a> has the full breakdown.'),
+       ('Is a sealed bar better than Rawa in Rawalpindi?','For savings, yes. A sealed bar is easier to resell because the weight and purity are certified. Rawa is cheaper per tola but needs testing each time.')])
 
 add('ary-kbe-gold-silver-bars',short='ARY, PSL, KBE Bars',
  title='ARY, PSL, KBE & PAMP Gold Silver Bar Price in Pakistan | GoldSilverRate.pk',
