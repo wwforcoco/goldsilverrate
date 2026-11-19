@@ -34,6 +34,29 @@ GOLDT=table('Gold rates today by karat',gold_rows())
 NOTE_G='<p class="note">Selling price is what a dealer asks when you buy. Buying price is what a dealer pays when you sell. The 24K buying and selling rates and the 22K and 21K selling rates come from the market sheet. The other buying prices are worked out from the 24K gap, and 18K is 75% of 24K. Always confirm the final price at the counter.</p>'
 NOTE_S='<p class="note">Selling price is what a dealer asks when you buy. Buying price is what a dealer pays when you sell. Prices are for metal only and do not include making charges, tax or packing.</p>'
 
+SILVER_BAR_ROWS=lambda s,b:[row('1 Tola Silver Bar (PSL / KBE)',1,s,b),row('10 Gram Silver Bar',10*G,s,b),row('5 Tola Silver Bar (PSL / KBE)',5,s,b),row('10 Tola Silver Bar (PSL / KBE)',10,s,b),row('50 Tola Silver Bar',50,s,b),row('1 KG Silver Bar (85.73 tola)',1000*G,s,b)]
+PSLKBET=f'''<h2 id="psl-kbe-silver-bars">PSL &amp; KBE Silver Bar Price in Pakistan Today (1 Tola, 10 Tola &amp; 10 Grams)</h2>
+{table('PSL &amp; KBE silver bar prices today (999.0 pure)',SILVER_BAR_ROWS(ps,pb))}
+<p class="note">PSL and KBE bars are both 999.0 fine silver, what many buyers call 24 carat chandi, sold in sealed packs. A PSL bar comes in a QR-coded sealed pack, so the weight and purity are already marked and resale is easy. KBE (Karachi Bullion Exchange) bars are certified 999.0 bars traded the same way. The table uses today's sealed-bar benchmark; a brand pack can add a small premium, so ask the dealer for the exact brand price before you pay.</p>'''
+
+ZAKAT_SECT=f'''<h2 id="zakat-nisab">52 Tola Chandi Price in Pakistan Today (52.5 Tola Silver Zakat Nisab 2026)</h2>
+{table('52 and 52.5 tola chandi price today',[row('52 Tola PSL silver (606.53 g)',52,ps,pb),row('52.5 Tola PSL silver (612.36 g)',52.5,ps,pb),row('52 Tola Rawa',52,rs,rb),row('52.5 Tola Rawa',52.5,rs,rb)])}
+<p class="note">The silver Zakat nisab is 52.5 tola, which is 612.36 grams. If the value of your silver, gold and savings stays above this amount for one full lunar year, you pay 2.5% of it as Zakat.</p>
+<div class="card"><h3>Calculate my 2.5% Zakat</h3><p class="note">Enter the total value in PKR of the savings, silver and gold you have held for a year. This is an estimate; for your exact case, ask your local scholar.</p>
+<div class="fields two"><div><label for="zak-val">Total value (PKR)</label><input id="zak-val" type="number" inputmode="numeric" min="0" step="any" placeholder="e.g. 700000"></div></div>
+<div class="out" id="zak-out" aria-live="polite"></div></div>'''
+
+CITY_SECT=f'''<h2>Silver Rate Today in Karachi, Islamabad, Lahore &amp; Rawalpindi (24 Carat Chandi)</h2>
+<div class="tablebox"><table><caption>City silver rates today (999 pure Sarafa benchmark)</caption><thead><tr><th scope="col">City</th><th scope="col">1 Tola</th><th scope="col">10 Gram</th><th scope="col">1 Gram</th><th scope="col">10 Tola Bar</th></tr></thead><tbody>
+{''.join(f'<tr><td>{c}</td><td>{pk(ps)}</td><td>{pk(10*G*ps)}</td><td>{pk(G*ps)}</td><td>{pk(10*ps)}</td></tr>' for c in ('Karachi','Islamabad','Rawalpindi','Lahore','Peshawar','Quetta','Multan','Faisalabad'))}
+</tbody></table></div>
+<p class="note">Silver follows one national Sarafa benchmark, so the 24 carat chandi rate is the same in Karachi, Islamabad, Lahore and other cities. Shop margins differ a little from city to city. See the city pages: <a href="/silver-rate-karachi">Karachi</a>, <a href="/silver-rate-islamabad-rawalpindi">Islamabad &amp; Rawalpindi</a> and <a href="/silver-rate-lahore">Lahore</a>.</p>'''
+
+KBE_GOLD_ROWS=[row('1 Gram Gold Bar (KBE / ARY 24K)',G,g24s,g24b),row('5 Gram Gold Bar',5*G,g24s,g24b),row('10 Gram Gold Bar',10*G,g24s,g24b),row('1 Tola Gold Bar (KBE / ARY 24K)',1,g24s,g24b),row('5 Tola Gold Bar',5,g24s,g24b),row('10 Tola Gold Bar',10,g24s,g24b)]
+KBE_GOLD_SECT=f'''<h2 id="kbe-gold-bars">KBE Gold Bar Price in Pakistan Today — Buy 24K Certified Gold Bars</h2>
+{table('KBE &amp; ARY 24K gold bar prices today (999.9 benchmark)',KBE_GOLD_ROWS)}
+<p class="note">KBE (Karachi Bullion Exchange) and ARY sealed bars are 24K certified gold, priced at the day rate plus a small brand premium. The table uses today's 24K benchmark, so ask your dealer for the exact bar price before you pay. Full checklist on the <a href="/ary-kbe-gold-silver-bars">ARY, KBE, PSL &amp; PAMP bars page</a>.</p>'''
+
 NAV=[('/','Home'),('/silver-rate-pakistan','Silver'),('/psl-silver-rate-pakistan','PSL Bars'),('/gold-rate-pakistan','Gold'),('/gold-rate-today-karachi','Karachi'),('/silver-rate-lahore','Lahore'),('/gold-silver-calculator','Calculator')]
 def rel(slugs):
     return '<div class="links">'+''.join(f'<a href="/{s}">{PAGES[s]["short"]}</a>' for s in slugs)+'</div>'
@@ -71,7 +94,7 @@ add('silver-rate-pakistan',short='Silver Rate',
  h1='Silver Rate in Pakistan Today',
  lead=f'Today silver sells at {pk(ps)} per tola for PSL bars and {pk(rs)} per tola for local Rawa. Here is the full list for tola, gram and kilo, so you can see your exact weight without doing any sums.',
  product=('Silver per tola in Pakistan',ps),
- body=lambda:PSLT+RAWAT+NOTE_S+'''
+ body=lambda:PSLT+RAWAT+PSLKBET+NOTE_S+'''
 <h2>Three kinds of silver you will hear about</h2>
 <h3>Pure 999 fine silver</h3><p>This is silver that is 99.9% pure. It is sold as sealed bars and bullion pieces, and it is the form most people use to save money in silver. Dealers pay a little less when you sell it back, which is why you see two prices.</p>
 <h3>Local Rawa silver</h3><p>Rawa is the silver sold loose in the Sarafa Bazar by weight. It is cheaper per tola than a sealed bar because there is no bar premium, but you need a dealer you trust to test the purity.</p>
@@ -79,8 +102,13 @@ add('silver-rate-pakistan',short='Silver Rate',
 <h2>What moves the silver price in Pakistan</h2>
 <ul><li>The international silver price, which changes through the day.</li><li>The dollar to rupee rate. When the dollar goes up, silver costs more rupees.</li><li>Demand from factories, since silver is used in electronics and solar panels.</li><li>Local demand and supply in the big Sarafa markets.</li></ul>
 <p>Because of these four things the rate can change more than once in a day. We show one benchmark rate with the time it was updated, so you always know how fresh it is. We do not keep a past rate archive on this page yet, so check the update time before you decide.</p>
-<h2>Check other weights</h2>'''+rel(['1-tola-silver-price-pakistan','10-tola-silver-price-pakistan','52-tola-chandi-price-pakistan','1-kg-silver-bar','10-gram-silver-price-pakistan']),
- faqs=[('What is the silver rate in Pakistan today?',f'The PSL bar rate today is {pk(ps)} per tola selling and {pk(pb)} per tola buying. Local Rawa is {pk(rs)} selling and {pk(rb)} buying. Last updated: {UP}.'),
+'''+ZAKAT_SECT+CITY_SECT+'''<h2>Check other weights</h2>'''+rel(['1-tola-silver-price-pakistan','10-tola-silver-price-pakistan','52-tola-chandi-price-pakistan','1-kg-silver-bar','10-gram-silver-price-pakistan']),
+ faqs=[('What is the PSL 10 Tola Silver Bar price in Pakistan today?',f'The PSL 10 tola silver bar sells for {pk(ps*10)} today, and dealers buy it back for about {pk(pb*10)}. Last updated: {UP}.'),
+       ('What is the 52 Tola Chandi price in Pakistan today for Zakat?',f'52 tola of silver is {pk(ps*52)} at the 999 pure rate ({pk(rs*52)} as local Rawa). The Zakat nisab of 52.5 tola (612.36 grams) comes to {pk(ps*52.5)} today. Last updated: {UP}.'),
+       ('What is the KBE Gold Bar and KBE Silver Bar 1 Tola price in Pakistan?',f'A 1 tola KBE silver bar trades at about {pk(ps)} (999.0 pure benchmark) and a 1 tola KBE or ARY 24K gold bar at about {pk(g24s)}. Brand packs can add a small premium. Last updated: {UP}.'),
+       ('What is the 24 Carat Silver rate today in Karachi and Islamabad?',f'The benchmark is {pk(ps)} per tola and {pk(10*G*ps)} per 10 grams in both Karachi and Islamabad, because silver follows one national Sarafa rate. Last updated: {UP}.'),
+       ('What is the price of 10 grams silver and 1 tola silver in Pakistan today?',f'1 tola (11.664 g) is {pk(ps)} and 10 grams is {pk(10*G*ps)} at the PSL bar rate. Last updated: {UP}.'),
+       ('Where to buy certified KBE and PSL gold and silver bars in Pakistan?','Certified sealed bars are sold by bullion dealers in the big Sarafa markets: Bolton Market and Saddar in Karachi, Suha Bazar in Lahore, and Raja Bazar in Rawalpindi. Check the seal, the QR code, the serial number and the weight before you pay, and take a bill.'),
        ('Why is Rawa cheaper than a PSL bar?','A PSL bar carries a premium for the sealed pack, the QR code and the easy resale. Rawa is sold loose by weight, so the price per tola is lower.'),
        ('How many grams are in one tola of silver?','One tola is 11.664 grams. Ten tola is 116.64 grams.')],
  faq_schema=True)
@@ -208,7 +236,7 @@ add('gold-rate-pakistan',short='Gold Rate',
  h1='Gold Rate in Pakistan Today',
  lead=f'24K gold is {pk(g24s)} per tola today. 22K gold is {pk(g22s)} per tola and 21K gold is {pk(g21s)} per tola. Last updated: {UP}.',
  product=('24K Gold per Tola',g24s),
- body=lambda:GOLDT+NOTE_G+'''
+ body=lambda:GOLDT+NOTE_G+KBE_GOLD_SECT+'''
 <h2>What the karat number means</h2>
 <p>Karat tells you how much of the piece is pure gold. 24K is pure. 22K is 22 parts gold out of 24, so about 91.6%. 21K is 87.5% and 18K is 75%. The rest is another metal such as copper that makes the gold harder.</p>
 <h2>Which karat is used for what</h2>
@@ -425,6 +453,11 @@ hb=f'''<section class="hero"><span class="stamp"><i></i>Updated: {UP}</span><h1>
 <p class="note wa"><a href="https://whatsapp.com/channel/0029Vb9bQ314tRrpC46GBr41" target="_blank" rel="noopener">Get daily rate updates: join our WhatsApp channel &rarr;</a></p>
 <h2>Calculator</h2>{calc_widget()}
 <h2>All weights at a glance</h2>{PSLT}{RAWAT}{GOLDT}{NOTE_G}
+<h2>Bar prices and Zakat in short</h2>
+<div class="grid three">
+<div class="card"><h3>PSL &amp; KBE silver bars</h3><p>1 tola: <strong>{pk(ps)}</strong> &middot; 10 tola bar: <strong>{pk(ps*10)}</strong> &middot; 10 gram: <strong>{pk(10*G*ps)}</strong></p><p><a href="/silver-rate-pakistan#psl-kbe-silver-bars">Full silver bar table &rarr;</a></p></div>
+<div class="card"><h3>KBE &amp; ARY gold bars</h3><p>1 tola bar: <strong>{pk(g24s)}</strong> &middot; 10 gram bar: <strong>{pk(10*G*g24s)}</strong></p><p><a href="/gold-rate-pakistan#kbe-gold-bars">Full KBE gold bar table &rarr;</a></p></div>
+<div class="card"><h3>52.5 tola Zakat nisab</h3><p>Today: <strong>{pk(ps*52.5)}</strong></p><p><a href="/silver-rate-pakistan#zakat-nisab">Open the Zakat calculator &rarr;</a></p></div></div>
 <h2>Pick your page</h2>
 <div class="grid three">
 <div class="card"><h3>Silver by weight</h3><p><a href="/1-tola-silver-price-pakistan">1 tola</a> &middot; <a href="/10-gram-silver-price-pakistan">10 gram</a> &middot; <a href="/10-tola-silver-price-pakistan">10 tola</a> &middot; <a href="/52-tola-chandi-price-pakistan">52 tola</a> &middot; <a href="/1-kg-silver-bar">1 kg</a></p></div>

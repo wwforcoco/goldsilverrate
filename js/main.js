@@ -45,4 +45,18 @@ if(jm){
  };
  jm.onchange=jw.oninput=jk.oninput=jz.oninput=run3;run3();
 }
+var zk=$('zak-val');
+if(zk){
+ var zo=$('zak-out');
+ var runZ=function(){
+  var nisab=d.silver.psl_tola_sell*52.5;
+  var v=parseFloat(zk.value)||0;
+  if(v>=nisab){
+   zo.innerHTML='<p>Total value: '+pk(v)+'</p><p>Zakat payable (2.5%): <strong>'+pk(v*0.025)+'</strong> for the year</p><p class="note">Today\u2019s nisab: '+pk(nisab)+' (52.5 tola silver). Your wealth is above it, so zakat is due.</p>';
+  }else{
+   zo.innerHTML='<p>Total value: '+pk(v)+'</p><p>Below today\u2019s silver nisab of '+pk(nisab)+' (52.5 tola), so no zakat is due on silver holdings at this level. You are '+pk(nisab-v)+' short of the nisab.</p>';
+  }
+ };
+ zk.oninput=runZ;runZ();
+}
 })();
